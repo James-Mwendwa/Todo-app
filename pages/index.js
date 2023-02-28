@@ -1,7 +1,11 @@
+import AddTodo from "../components/AddTodo";
+import { Authenticate } from "../components/Auth";
+
 export default function Home() {
   return (
     <div className="">
-      <h2>Todo App</h2>
+      <AddTodo />
+      <Authenticate />
     </div>
   );
 }
