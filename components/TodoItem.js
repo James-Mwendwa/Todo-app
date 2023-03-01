@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import userAuth from "../hooks/userAuth";
-import { toggleTodoStatus, deleteTodo } from "../api/todo";
+import { deleteTodo } from "../api/todo";
 import { db } from "../firebase/index";
+import { MdDeleteOutline } from "react-icons/md";
 
 import { collection, query, where, onSnapshot } from "firebase/firestore";
 
@@ -26,13 +27,18 @@ function TodoItem() {
     });
   }, [user]);
   return (
-    <div>
+    <div className="ml-20">
       TodoItem
       {todos &&
         todos.map((todo) => {
-          <div key={todo.id}>
+          <div className="flex items-center bg-bg" key={todo.id}>
             <h2>{todo.title}</h2>
             <p>{todo.description}</p>
+            <div>
+              <button onClick={() => deleteTodo()}>
+                <MdDeleteOutline />
+              </button>
+            </div>
           </div>;
         })}
     </div>
