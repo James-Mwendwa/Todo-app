@@ -1,7 +1,7 @@
 import "../styles/globals.css";
-import Modal from "react-modal";
+import ReactModal from "react-modal";
 
-//Modal.setAppElement("#root");
+ReactModal.setAppElement("#_next");
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />;

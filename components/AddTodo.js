@@ -17,14 +17,16 @@ function AddTodo() {
       alert("please login");
       return;
     }
+
     const todo = {
       title,
       description,
       userId: user.uid,
     };
+
     await addTodo(todo);
 
-    setTitle(title);
+    setTitle("");
     setDescription("");
     console.log("item added successfully");
   };
@@ -33,9 +35,10 @@ function AddTodo() {
     <div className="grid place-items-center mt-10 m-5 ">
       <div className="flex items-center h-20">
         <h2 className="mr-5">Add Todos</h2>
-        <button onChange={() => setModalIsOpen(true)}>
+        <button onClick={() => setModalIsOpen(true)}>
           <GrAdd />
         </button>
+
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={() => setModalIsOpen(false)}
